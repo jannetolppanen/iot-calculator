@@ -25,6 +25,11 @@ app.post('/increment', (req, res) => {
 })
 
 app.post('/decrement', (req, res) => {
+  if (currentVisitors <= 0) {
+    return res.status(400).json({
+      error: 'Cant decrement any more visitors'
+    })
+  }
   currentVisitors = currentVisitors - 1;
   res.type('application/json')
   res.status(200)
