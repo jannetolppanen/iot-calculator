@@ -6,16 +6,20 @@
 >http://iotcounter.northeurope.cloudapp.azure.com:3000/
 
 Get current count
-`HTTP GET` > http://4.210.123.248:3000
+`HTTP GET`
+>http://4.210.123.248:3000
 
 Increment count
-`HTTP POST` > http://4.210.123.248:3000/increment
+`HTTP POST`
+>http://4.210.123.248:3000/increment
 
 Decrement count
-`HTTP POST` > http://4.210.123.248:3000/decrement
+`HTTP POST`
+>http://4.210.123.248:3000/decrement
 
 Reset count
-`HTTP POST` > http://4.210.123.248:3000/reset
+`HTTP POST`
+>http://4.210.123.248:3000/reset
 
 No passwords required
 Shows number of current visitors and the total number of visitors since last reset
