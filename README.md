@@ -5,6 +5,9 @@
 `Osoite` 
 >http://iotcounter.northeurope.cloudapp.azure.com:3000/
 
+Get current count
+`HTTP GET` > http://4.210.123.248:3000
+
 Increment count
 `HTTP POST` > http://4.210.123.248:3000/increment
 
