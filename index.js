@@ -55,11 +55,11 @@ app.post('/reset', (req, res) => {
 })
 
 // for production enviroment
-// app.listen(port, '0.0.0.0', () => {
-//   console.log(`listening at http://0.0.0.0:${port}`)
-// });
-
-// for dev enviroment
-app.listen(port, 'localhost', () => {
+app.listen(port, '0.0.0.0', () => {
   console.log(`listening at http://0.0.0.0:${port}`)
 });
+
+// for dev enviroment
+// app.listen(port, 'localhost', () => {
+//   console.log(`listening at http://0.0.0.0:${port}`)
+// });
