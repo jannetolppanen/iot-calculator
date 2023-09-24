@@ -1,5 +1,6 @@
 require('dotenv').config()
 const express = require('express');
+const cors = require('cors')
 const app = express();
 const port = 3000;
 
@@ -15,6 +16,7 @@ const auth_password = process.env.AUTH_PASSWORD
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
+app.use(cors())
 
 app.get('/', (req, res) => {
   res.status(200).json({ currentVisitors, totalVisitors })
