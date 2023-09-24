@@ -15,7 +15,7 @@ const auth_username = process.env.AUTH_USERNAME
 const auth_password = process.env.AUTH_PASSWORD
 
 app.use(express.json())
-app.use(express.urlencoded({ extended: true }))
+// app.use(express.urlencoded({ extended: true }))
 app.use(cors())
 
 app.get('/', (req, res) => {
