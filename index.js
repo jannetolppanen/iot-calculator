@@ -41,29 +41,6 @@ app.post('/update', (req, res) => {
   res.status(200).json({ currentVisitors, totalVisitors })
 })
 
-// app.post('/increment', (req, res) => {
-//   const { username, password } = req.body
-//   if (auth_username !== username || auth_password !== password) {
-//     return res.status(401).json({ "error" : "invalid credentials" })
-//   }
-//   currentVisitors = currentVisitors + 1;
-//   totalVisitors = totalVisitors + 1
-//   res.status(200).json({ currentVisitors, totalVisitors })
-// })
-
-// app.post('/decrement', (req, res) => {
-//   const { username, password } = req.body
-//   if (auth_username !== username || auth_password !== password) {
-//     return res.status(401).json({ "error" : "invalid credentials" })
-//   }
-//   if (currentVisitors <= 0) {
-//     return res.status(400).json({
-//       error: 'Cant decrement any more visitors'
-//     })
-//   }
-//   currentVisitors = currentVisitors - 1;
-//   res.status(200).json({ currentVisitors, totalVisitors })
-// })
 
 app.post('/reset', (req, res) => {
   const { username, password } = req.body
@@ -76,12 +53,12 @@ app.post('/reset', (req, res) => {
 })
 
 // for production enviroment
-// app.listen(port, '0.0.0.0', () => {
-//   console.log(`listening at http://0.0.0.0:${port}`)
-// });
+app.listen(port, '0.0.0.0', () => {
+  console.log(`listening at http://0.0.0.0:${port}`)
+});
 
 // for dev enviroment
-app.listen(port, 'localhost', () => {
-  console.log('dev enviroment')
-  console.log(`listening at localhost:${port}`)
-});
+// app.listen(port, 'localhost', () => {
+//   console.log('dev enviroment')
+//   console.log(`listening at localhost:${port}`)
+// });
