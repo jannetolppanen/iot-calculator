@@ -1,13 +1,16 @@
 `IP`
 > http://4.210.123.248:3000/
+***
 
 `URL`
 > http://iotcounter.northeurope.cloudapp.azure.com:3000/
+***
 
 Get current count
 `HTTP GET`
 
 > http://4.210.123.248:3000
+***
 
 Update count
 `HTTP POST`
@@ -21,6 +24,7 @@ Update count
 ```
 
 > http://4.210.123.248:3000/update
+***
 
 Reset count
 `HTTP POST`
@@ -32,6 +36,7 @@ Reset count
 ```
 
 > http://4.210.123.248:3000/reset
+***
 
 
 
