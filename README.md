@@ -11,21 +11,25 @@ Get current count
 
 Update count
 `HTTP POST`
+```
 {
     "username": "iotcalc",
     "password": "secret",
     "currentCount": 0,
     "totalCount": 0
 }
+```
 
 > http://4.210.123.248:3000/update
 
 Reset count
 `HTTP POST`
+```
 {
     "username": "iotcalc",
     "password": "secret",
 }
+```
 
 > http://4.210.123.248:3000/reset
 
