@@ -1,33 +1,35 @@
-`IP` 
->http://4.210.123.248:3000/
+`IP`
+> http://4.210.123.248:3000/
 
- 
-`Osoite` 
->http://iotcounter.northeurope.cloudapp.azure.com:3000/
+`URL`
+> http://iotcounter.northeurope.cloudapp.azure.com:3000/
 
 Get current count
 `HTTP GET`
->http://4.210.123.248:3000
 
-Increment count
-`HTTP POST`
->http://4.210.123.248:3000/increment
+> http://4.210.123.248:3000
 
-Decrement count
+Update count
 `HTTP POST`
->http://4.210.123.248:3000/decrement
+{
+    "username": "iotcalc",
+    "password": "secret",
+    "currentCount": 0,
+    "totalCount": 0
+}
+
+> http://4.210.123.248:3000/update
 
 Reset count
 `HTTP POST`
->http://4.210.123.248:3000/reset
+{
+    "username": "iotcalc",
+    "password": "secret",
+}
 
-Increment, decrement and reset require a credentials. Get current count does not.
-For increment, decrement and reset to work you need to add credentials to the request body:
+> http://4.210.123.248:3000/reset
 
-    {
-        "username": "iotcalc",
-        "password": "secret"
-    }
+
 
 Shows number of current visitors and the total number of visitors since last reset
 

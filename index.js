@@ -7,7 +7,7 @@ const port = 3000;
 // total number of visitors until last reset
 let totalVisitors = 0;
 
-// total number of visitors inside building currently
+// total number of visitors inside area currently
 let currentVisitors = 0
 
 // credentials from .env
@@ -15,36 +15,55 @@ const auth_username = process.env.AUTH_USERNAME
 const auth_password = process.env.AUTH_PASSWORD
 
 app.use(express.json())
-// app.use(express.urlencoded({ extended: true }))
 app.use(cors())
 
 app.get('/', (req, res) => {
   res.status(200).json({ currentVisitors, totalVisitors })
 })
 
-app.post('/increment', (req, res) => {
-  const { username, password } = req.body
+app.post('/update', (req, res) => {
+  const { username, password, currentCount, totalCount } = req.body
+
   if (auth_username !== username || auth_password !== password) {
     return res.status(401).json({ "error" : "invalid credentials" })
   }
-  currentVisitors = currentVisitors + 1;
-  totalVisitors = totalVisitors + 1
+  
+  if (currentCount === undefined || totalCount === undefined) {
+    return res.status(400).json({ "error" : "data missing" })
+  }
+
+  if (currentCount === null || totalCount === null || isNaN(currentCount) || isNaN(totalCount)) {
+    return res.status(400).json({ "error": "invalid data" })
+  }
+
+  currentVisitors = currentVisitors + currentCount;
+  totalVisitors = totalVisitors + totalCount
   res.status(200).json({ currentVisitors, totalVisitors })
 })
 
-app.post('/decrement', (req, res) => {
-  const { username, password } = req.body
-  if (auth_username !== username || auth_password !== password) {
-    return res.status(401).json({ "error" : "invalid credentials" })
-  }
-  if (currentVisitors <= 0) {
-    return res.status(400).json({
-      error: 'Cant decrement any more visitors'
-    })
-  }
-  currentVisitors = currentVisitors - 1;
-  res.status(200).json({ currentVisitors, totalVisitors })
-})
+// app.post('/increment', (req, res) => {
+//   const { username, password } = req.body
+//   if (auth_username !== username || auth_password !== password) {
+//     return res.status(401).json({ "error" : "invalid credentials" })
+//   }
+//   currentVisitors = currentVisitors + 1;
+//   totalVisitors = totalVisitors + 1
+//   res.status(200).json({ currentVisitors, totalVisitors })
+// })
+
+// app.post('/decrement', (req, res) => {
+//   const { username, password } = req.body
+//   if (auth_username !== username || auth_password !== password) {
+//     return res.status(401).json({ "error" : "invalid credentials" })
+//   }
+//   if (currentVisitors <= 0) {
+//     return res.status(400).json({
+//       error: 'Cant decrement any more visitors'
+//     })
+//   }
+//   currentVisitors = currentVisitors - 1;
+//   res.status(200).json({ currentVisitors, totalVisitors })
+// })
 
 app.post('/reset', (req, res) => {
   const { username, password } = req.body
@@ -57,11 +76,12 @@ app.post('/reset', (req, res) => {
 })
 
 // for production enviroment
-app.listen(port, '0.0.0.0', () => {
-  console.log(`listening at http://0.0.0.0:${port}`)
-});
-
-// for dev enviroment
-// app.listen(port, 'localhost', () => {
+// app.listen(port, '0.0.0.0', () => {
 //   console.log(`listening at http://0.0.0.0:${port}`)
 // });
+
+// for dev enviroment
+app.listen(port, 'localhost', () => {
+  console.log('dev enviroment')
+  console.log(`listening at localhost:${port}`)
+});
