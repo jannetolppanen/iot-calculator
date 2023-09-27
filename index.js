@@ -1,4 +1,3 @@
-require('dotenv').config()
 const express = require('express');
 const cors = require('cors')
 const app = express();
@@ -10,9 +9,9 @@ let totalVisitors = 0;
 // total number of visitors inside area currently
 let currentVisitors = 0
 
-// credentials from .env
-const auth_username = process.env.AUTH_USERNAME
-const auth_password = process.env.AUTH_PASSWORD
+// credentials
+const auth_username = "iotcalc"
+const auth_password = "secret"
 
 app.use(express.json())
 app.use(cors())
@@ -52,12 +51,7 @@ app.post('/reset', (req, res) => {
   res.status(200).json({ currentVisitors, totalVisitors })
 })
 
-// for production enviroment
-// app.listen(port, '0.0.0.0', () => {
-//   console.log(`listening at http://0.0.0.0:${port}`)
-// });
 
-// for dev enviroment
 app.listen(port, 'localhost', () => {
   console.log(`listening at localhost:${port}`)
 });
