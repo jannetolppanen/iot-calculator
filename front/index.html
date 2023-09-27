@@ -6,11 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IoT ryhmatyo</title>
     <script defer src = "main.js"></script>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <h1>Ihmisiä tapahtumassa</h1>
-    <p>ihmisiä: <span id="maara"></span></p>
-    <button onclick="getCount()">päivitä</button>
+
+    <p>Ihmisiä nyt: <span id="now"></span></p>
+    <p>Ihmisiä tänään: <span id="all"></span></p>
     
+    <button onclick="getCount()">Päivitä</button>
+
+    <div>
+        <img src="tapahtuma-alue-v4.png" alt="tapahtuma-alue"></img>
+    </div>
+
+ 
 </body>
 </html>

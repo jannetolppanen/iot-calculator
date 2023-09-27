@@ -3,13 +3,13 @@
 ***
 
 `URL`
-> http://iotcounter.northeurope.cloudapp.azure.com:3000/
+> http://iotcounter.northeurope.cloudapp.azure.com/
 ***
 
 Get current count
 `HTTP GET`
 
-> http://4.210.123.248:3000
+> http://iotcounter.northeurope.cloudapp.azure.com/
 ***
 
 Update count
@@ -23,7 +23,7 @@ Update count
 }
 ```
 
-> http://4.210.123.248:3000/update
+> http://iotcounter.northeurope.cloudapp.azure.com//update
 ***
 
 Reset count
@@ -35,13 +35,11 @@ Reset count
 }
 ```
 
-> http://4.210.123.248:3000/reset
+> http://iotcounter.northeurope.cloudapp.azure.com//reset
 ***
 
 
 
 Shows number of current visitors and the total number of visitors since last reset
 
-Azure
-ssh username@4.210.123.248
-use screen
+

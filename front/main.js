@@ -1,29 +1,18 @@
-const BASE_URL = 'http://4.210.123.248:3000/';
-const COUNT_DOM = document.getElementById('maara');
-const COUNT_ALL = document.getElementById('kaikki');
-
-// const getCount = () => {
-//     fetch(BASE_URL,{
-//         "method": "GET",
-//     }).then (response => response.text())
-//     .then((text) => {
-//         console.log('text: ', text.currentVisitors)
-//         COUNT_DOM.innerText = text;
-//     }) .catch(err => {
-//         console.error(err);
-//     });
-
-// };
+const BASE_URL = "http://iotcounter.northeurope.cloudapp.azure.com/status";
+const COUNT_NOW = document.getElementById("now");
+const COUNT_ALL = document.getElementById("all");
 
 const getCount = () => {
-  fetch(BASE_URL, {
-    method: 'GET',
-  })
-    .then((response) => {
-      return response.json();
+    fetch(BASE_URL, {
+      method: 'GET',
     })
-    .then((data) => {
-      console.log('data:', data);
-      COUNT_DOM.innerText = data.totalVisitors;
+      .then((response) => response.json())
+      .then((data) => {
+        console.log('data:', data);
+        COUNT_NOW.innerText = data.currentVisitors;
+        COUNT_ALL.innerText = data.totalVisitors;
+    }) .catch(err => {
+        console.error(err);
     });
-};
+
+  };
