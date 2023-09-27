@@ -17,7 +17,7 @@ const auth_password = process.env.AUTH_PASSWORD
 app.use(express.json())
 app.use(cors())
 
-app.get('/', (req, res) => {
+app.get('/status', (req, res) => {
   res.status(200).json({ currentVisitors, totalVisitors })
 })
 
@@ -53,12 +53,11 @@ app.post('/reset', (req, res) => {
 })
 
 // for production enviroment
-app.listen(port, '0.0.0.0', () => {
-  console.log(`listening at http://0.0.0.0:${port}`)
-});
+// app.listen(port, '0.0.0.0', () => {
+//   console.log(`listening at http://0.0.0.0:${port}`)
+// });
 
 // for dev enviroment
-// app.listen(port, 'localhost', () => {
-//   console.log('dev enviroment')
-//   console.log(`listening at localhost:${port}`)
-// });
+app.listen(port, 'localhost', () => {
+  console.log(`listening at localhost:${port}`)
+});

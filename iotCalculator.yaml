@@ -1,0 +1,94 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: IOT Counter
+  description: 'Keeps track of visitors in the area'
+  termsOfService: 'https://smartbear.com/terms-of-use/'
+  contact:
+    name: 'Janne Tolppanen'
+    url: 'http://www.konepaja.dev'
+    email: 'janne.tolppanen@student.lab.fi'
+  license:
+    name: 'Creative commons'
+    url: 'https://creativecommons.org/licenses/'
+
+servers:
+  - url: 'http://4.210.123.248:3000/'
+    description: IOT Group project 
+
+paths:
+  /:
+    get:
+      description: Get the current status of the calculator
+      responses:
+        '200':
+          description: Counter values
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Counter'                  
+
+  /increment:
+    post:
+      description: Increment visitors by one
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Credentials'
+      responses:
+        '200':
+          description: Succesful increment
+
+  /decrement:
+    post:
+      description: Decrement visitors by one
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Credentials'
+      responses:
+        '200':
+          description: Succesful decrement
+
+  /reset:
+    post:
+      description: Reset values to 0
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Credentials'
+      responses:
+        '200':
+          description: Succesful reset
+                    
+components:
+  schemas:
+    Counter:
+      description: Current counter value
+      type: object
+      properties:
+        currentVisitors:
+          type: integer
+          format: int64
+          example: 4
+        totalVisitors:
+          type: integer
+          format: int64
+          example: 8
+
+    Credentials:
+      description: Credentials for post requests
+      type: object
+      properties:
+        username:
+          type: string
+          example: iotcalc
+        password:
+          type: string
+          example: secret
