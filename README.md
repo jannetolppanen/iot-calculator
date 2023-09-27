@@ -23,7 +23,7 @@ Update count
 }
 ```
 
-> http://iotcounter.northeurope.cloudapp.azure.com//update
+> http://iotcounter.northeurope.cloudapp.azure.com/update
 ***
 
 Reset count
@@ -35,7 +35,7 @@ Reset count
 }
 ```
 
-> http://iotcounter.northeurope.cloudapp.azure.com//reset
+> http://iotcounter.northeurope.cloudapp.azure.com/reset
 ***
 
 
