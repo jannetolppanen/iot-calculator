@@ -9,7 +9,7 @@
 Get current count
 `HTTP GET`
 
-> http://iotcounter.northeurope.cloudapp.azure.com/
+> http://iotcounter.northeurope.cloudapp.azure.com/status
 ***
 
 Update count
